@@ -1,0 +1,365 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossas Memórias</title>
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, #171717, #171717);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        overflow-x: hidden;
+        }
+
+        .hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 9999;
+        pointer-events: none;
+        transition: opacity 0.5s ease-in-out; /* Transição suave */
+        }
+
+        .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: fall 4s linear infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+        }
+
+        .heart::before {
+        top: -10px;
+        left: 0;
+        }
+
+        .heart::after {
+        left: -10px;
+        top: 0;
+        }
+
+        @keyframes fall {
+        0% {
+            top: -10%;
+            opacity: 1;
+        }
+        100% {
+            top: 110%;
+            opacity: 0;
+        }
+        }
+
+        .carousel {
+            overflow: hidden;
+            gap: 14px;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            justify-content: center;
+          }
+          
+          .carousel img {
+            margin-left: 15px;
+            width: 260px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 20px;
+            scroll-snap-align: center;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 12px #ff0000, 0 0 30px #682525;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+          }
+          
+          .carousel img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px #ff0000, 0 0 50px #682525;
+          }
+          
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 1s ease; /* Esta linha é importante para a transição suave */
+        }
+
+        .date-caption {
+            margin-top:  10px;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+
+        .titulo {
+        display: block;
+        font-size: 20px;
+        margin: 20px 10px 10px;
+        font-weight: bold;
+        }
+
+        .contador {
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        }
+
+        .mensagem {
+        margin: 10px 20px;
+        font-size: 16px;
+        white-space: pre-wrap;
+        text-align: center;
+        line-height: 1.7;
+        }
+
+        .linha-roxa {
+        width: 80%;
+        height: 2px;
+        background-color: #ff0000;
+        margin: 10px auto;
+        }
+
+        .spotify {
+         display: block;
+        font-size: 20px;
+        margin: 0px 10px 0px;
+        padding-top: 20px;
+        font-weight: bold;
+        }
+    </style>
+    </head>
+    <body>
+
+    <!-- Player Spotify -->
+     <div class="spotify">
+    
+     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/09mEdoA6zrmBPgTEN5qXmN?utm_source=generator&autoplay=true" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+
+     </div>
+
+    <!-- Carrossel de imagens -->
+    <div class="carousel">
+        <div class="carousel-track">
+        <div class="carousel-item">
+            <img src="1.jpg" alt="Foto 1">
+            <div class="date-caption">25/12/2024</div>
+        </div>
+        <div class="carousel-item">
+            <img src="2.jpg" alt="Foto 2">
+            <div class="date-caption">03/01/2025</div>
+        </div>
+        <div class="carousel-item">
+            <img src="3.jpg" alt="Foto 3">
+            <div class="date-caption">15/01/2025</div>
+        </div>
+        <div class="carousel-item">
+            <img src="4.jpg" alt="Foto 4">
+            <div class="date-caption">18/01/2025</div>
+        </div>
+        <div class="carousel-item">
+            <img src="5.jpg" alt="Foto 5">
+            <div class="date-caption">05/01/2025</div>
+        </div>
+        <div class="carousel-item">
+            <img src="6.jpg" alt="Foto 6">
+            <div class="date-caption">18/01/2025</div>
+        </div>
+        <div class="carousel-item">
+            <img src="7.jpg" alt="Foto 7">
+            <div class="date-caption">21/01/2025</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Título -->
+    <div class="titulo">Um desabafo e um pouco das nossas memórias, espero que você me entenda!</div>
+
+    <!-- Contador -->
+    <div class="contador" id="contador"></div>
+
+    <!-- Linha roxa -->
+    <div class="linha-roxa"></div>
+
+    <!-- Texto -->
+    <div class="mensagem">
+        Falta pouco pra completarmos mais um mês juntos, e eu quis trazer esse presente simples, mas de coração, que relembra um pouco das nossas memórias e vivências. Espero que você goste.
+
+    Esse texto está sendo escrito por mim no dia 15 de abril, às 6:22 da manhã. A gente acabou tendo um desentendimento por causa de umas mensagens suas com o Yago, e eu fiquei bem magoado com o que li. Você me passou uma outra versão da história, que sinceramente eu não lembro de ter lido, e também se negou a me mandar a print da conversa.
+
+    Quero que você entenda que eu não tô te julgando, nem querendo ser invasivo. Eu só realmente não entendi o que aconteceu, e me pareceu que você tava querendo esconder alguma coisa de mim. Acredito que com essas palavras você consiga me entender e talvez até me mostrar o que realmente estava escrito, pra que eu possa compreender melhor.
+
+    A gente não pode viver com inseguranças. A gente tá tentando construir algo junto, certo? Você tá disposta a vir morar comigo, certo? Então me mostra tudo o que tem pra mostrar. Não apaga, não esconde, não tenha medo. Eu já vi várias coisas que, se eu quisesse, teria te odiado por ter visto — mas deixei pra lá. Passado é passado, e a gente resolve no presente.
+
+    Fiquei magoado porque você saiu, falou que ia voltar, mandou uma palavra aleatória na conversa e depois não voltou mais. Isso doeu.
+
+    Eu sei que às vezes a gente erra, fala sem pensar, ou age no impulso... eu mesmo já errei contigo e você sabe disso. Mas tô aqui tentando melhorar, aprender contigo, crescer junto. Só que pra isso dar certo de verdade, tem que ser dos dois lados, tem que ter entrega, tem que ter verdade.
+
+    Eu escolhi estar com você, e não é só nos momentos bons. É nos difíceis também, nas dúvidas, nas inseguranças. Eu só quero saber se você tá escolhendo isso comigo também.
+
+    Esse desabafo aqui é do fundo do meu coração. Até porque, olha o que aconteceu com o Yago... desabafei com ele, e ele simplesmente foi lá e te contou sem minha permissão. Sem sequer me avisar que tinha te falado. Isso me fez perder completamente a confiança nele. E agora, ver que vocês continuam próximos, conversando como se nada tivesse acontecido, me deixa desconfortável. Fica difícil pra mim aceitar essa amizade da mesma forma, principalmente depois de ver você falando coisas sobre mim pra ele que machucam, que me fizeram me sentir pequeno.
+
+    Fiquei mal demais ao ler aquelas mensagens de vocês dois. Você dizendo que ele pode contar com você — e comigo — pra me ver falhar em tudo. Como se eu fosse um fracassado. Como se nada do que eu fizesse tivesse valor. Ler isso de alguém que eu gosto tanto, doeu. E quando você diz que ele é melhor nas palavras do que eu... parece que você prefere conversar com ele do que comigo. Parece que eu nunca vou ser o suficiente.
+
+    Mas, mesmo com tudo isso...
+    Eu tô aqui. Escrevendo esse texto. Me abrindo. Me expondo. Porque ainda acredito na gente. Ainda acredito que, se a gente conseguir conversar de verdade, com sinceridade e respeito, a gente pode dar certo.
+
+    Não quero te perder. Não quero que a gente vire mais uma história mal resolvida.
+    Eu gosto de você. Gosto de estar contigo, dos nossos momentos, dos nossos planos.
+    Eu só preciso que você venha comigo de verdade. Que me diga o que sente, o que pensa, sem medo. E que me ajude a entender quando eu não conseguir sozinho. Só assim a gente consegue construir algo sólido.
+
+    Sei que talvez esse texto não seja fácil de ler. Mas ele é sincero. E se tocar teu coração de alguma forma, já valeu a pena.
+
+    Tô aqui. De verdade. E ainda quero muito que a gente continue escrevendo essa história juntos.
+
+    Aguardo uma resposta sua.
+    Adicionei algumas das nossas fotos juntos, alguns dos nossos momentos mais especiais. E queria encerrar recitando um poema pra você, Mariana:
+
+    Se um dia a dúvida pesar no teu peito,
+    lembra de tudo que a gente já viveu.
+    Nem tudo vai ser perfeito,
+    mas meu amor por você sempre foi verdadeiro.
+
+    Te amo do fundo do meu coração.
+    Espero que você consiga resolver tudo com a sua mãe, e que venha logo pra cá.
+    Tô te esperando.
+    </div>
+
+    <!-- Efeito corações -->
+    <div class="hearts"></div>
+
+    <script>
+        // Contador com meses, dias, horas, minutos e segundos
+        const contador = document.getElementById('contador');
+        const dataInicio = new Date('2024-12-24T23:00:00');
+
+        setInterval(() => {
+        const agora = new Date();
+        let anos = agora.getFullYear() - dataInicio.getFullYear();
+        let meses = agora.getMonth() - dataInicio.getMonth();
+        let dias = agora.getDate() - dataInicio.getDate();
+        if (dias < 0) {
+            meses--; 
+            dias += new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+        }
+        if (meses < 0) {
+            anos--;
+            meses += 12;
+        }
+
+        const diff = agora - dataInicio;
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diff / (1000 * 60)) % 60);
+        const segundos = Math.floor((diff / 1000) % 60);
+
+        let tempo = '';
+        if (anos > 0) tempo += `${anos} ano${anos > 1 ? 's' : ''}, `;
+        tempo += `${meses} mês${meses !== 1 ? 'es' : ''}, ${dias} dia${dias !== 1 ? 's' : ''}, `;
+        tempo += `${horas}h ${minutos}m ${segundos}s ❤️`;
+
+        contador.innerHTML = tempo;
+        }, 1000);
+
+        // Efeito corações
+        const heartsContainer = document.querySelector(".hearts");
+
+        function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw"; /* Posição aleatória */
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s"; /* Duração aleatória da animação */
+        heartsContainer.appendChild(heart);
+    
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+        }
+    
+        setInterval(createHeart, 300); // Criação dos corações
+    
+        // Esconde os corações com transição suave ao rolar a página
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", () => {
+        let currentScrollTop = window.scrollY;
+        if (currentScrollTop > 100 && lastScrollTop <= 100) {
+            heartsContainer.style.opacity = "0"; // Fade out
+        } else if (currentScrollTop <= 100 && lastScrollTop > 100) {
+            heartsContainer.style.opacity = "1"; // Fade in
+        }
+        lastScrollTop = currentScrollTop;
+        }); 
+
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        let imageWidth = images[0].offsetWidth + 14;
+        let index = 0;
+        let autoScrollActive = true;
+    
+        function animateScroll(target) {
+          const start = carousel.scrollLeft;
+          const distance = target - start;
+          const duration = 500;
+          let startTime = null;
+    
+          function animation(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            carousel.scrollLeft = start + distance * progress;
+            if (progress < 1) {
+              requestAnimationFrame(animation);
+            }
+          }
+    
+          requestAnimationFrame(animation);
+        }
+    
+        function autoScroll() {
+          if (!autoScrollActive) return;
+          index++;
+          if (index >= images.length) {
+            index = 0;
+            animateScroll(0);
+          } else {
+            animateScroll(index * imageWidth);
+          }
+        }
+    
+        let interval = setInterval(autoScroll, 3000);
+    
+        carousel.addEventListener('touchstart', () => {
+          autoScrollActive = false;
+          clearInterval(interval);
+        });
+    
+        carousel.addEventListener('touchend', () => {
+          autoScrollActive = true;
+          interval = setInterval(autoScroll, 3000);
+        });
+    
+        carousel.addEventListener('scroll', () => {
+          index = Math.round(carousel.scrollLeft / imageWidth);
+        });
+    
+        window.addEventListener('resize', () => {
+          imageWidth = images[0].offsetWidth + 14;
+        });
+    </script>
+    </body>
+    </html>
